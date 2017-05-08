@@ -1,0 +1,23 @@
+<div class="ui active dimmer" *ngIf="!dataComplete" style="position:fixed;min-height:100%">
+  <div class="ui indeterminate text loader">Preparing Data from OCI</div>
+</div>
+<h1 class="ui header">
+  Dashboard
+</h1>
+<p class="sub header">The dashboard is the latest collected info for all the rulegroups. You can define the rulegroup and rules.</p>
+<br>
+<div class="ui grid">
+  <div class="fourteen wide column">
+    <sm-select placeholder="Search..." class="search fluid" [(model)]="selected">
+      <option *ngFor="let name of selectorList">{{name}}</option>
+    </sm-select>
+  </div>
+  <div class="one wide column">
+    <sm-button class="primary active" (click)="onQuery()">Query</sm-button>
+  </div>
+</div>
+<br>
+
+<div style="overflow-x: scroll" *ngIf="showTable">
+  <ui-table [table]="table" [editable]="false"></ui-table>
+</div>

@@ -1,0 +1,45 @@
+<sm-modal [title]="title" #myModal>
+    <modal-content>
+        <form class="ui form">
+        <div class="field" *ngFor="let field of fields;let i =index ;">
+            <input *ngIf="(getType(field)=='hidden')" ngModel="[(values[i])]" name="dialog" hidden />
+            <sm-input *ngIf="(getType(field)=='input') && !isHidden(field.name)" [label]="field.name" [(model)]="values[i]"></sm-input>
+            <sm-select *ngIf="getType(field)=='select' && !isHidden(field.name)" [label]="field.name" [(model)]="values[i]" (modelChange)="checkControl(field.name,values[i])">
+                <option *ngFor="let choice of field.choices" [value]="choice">{{choice}}</option>
+            </sm-select>
+            <sm-checkbox *ngIf="getType(field)=='check' && !isHidden(field.name)" [label]="field.name" type="slider" [(control)]="values[i]"></sm-checkbox>
+            <ui-select #multi *ngIf="getType(field)=='multiselect' && !isHidden(field.name)" [choices]="field.choices" [label]="field.name" [(selected)]="values[i]"></ui-select>
+            <ui-popup *ngIf="getType(field)=='popup' && !isHidden(field.name)" [fields]="field.content" [label]="field.name" [(dataList)]="values[i]" #popup></ui-popup>
+        </div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="action" style="padding-bottom:5px">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button" (click)="getValues()">
+                Confirm
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+
+<sm-modal [title]="title" #deleteModal>
+    <modal-content>
+        <h3>Are You Sure You Want to delete the data ? (You can't recover it!)</h3>
+    </modal-content>
+    <modal-actions>
+        <div class="action" style="padding-bottom:5px">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui red right positive labeled icon button" (click)="doDelete()">
+                Confirm
+                <i class="delete icon"></i>
+            </div>
+        </div>
+    </modal-actions>
+</sm-modal>

@@ -1,0 +1,38 @@
+<table class="ui blue table sortable" #UITable>
+  <thead>
+  <tr>
+    <th *ngIf="editable"></th>
+    <th *ngFor="let col of table.column">{{col}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of table.data;let i = index">
+    <td *ngIf="editable" >
+      <div class="ui buttons">
+        <button class="ui blue basic button" style="width:5em" (click)="onQuery(i)">MOD</button>
+        <button class="ui red basic button" style="width:5em" (click)="onDelete(i)">DEL </button>
+
+        <!--<sm-button class="basic blue active" (click)="onQuery(i)">Mod</sm-button>-->
+        <!--<sm-button class="basic red active" (click)="onQuery(i)">Del</sm-button>-->
+      </div>
+      <!--<sm-accordion>-->
+        <!--<sm-accordion-item>-->
+          <!--<accordion-title>Expand</accordion-title>-->
+          <!--<accordion-content>A dog is a </accordion-content>-->
+        <!--</sm-accordion-item>-->
+      <!--</sm-accordion>-->
+    </td>
+    <td *ngFor="let val of data">
+      <div *ngIf="isThreshold(val)">
+        <div *ngIf="val=='Good'" class="ui green label">Good</div>
+        <div *ngIf="val=='Warn'" class="ui orange label">Warn</div>
+        <div *ngIf="val=='Critical'" class="ui red label">Critical</div>
+      </div>
+       <div *ngIf="isList(val)">
+           <div  *ngFor="let v of val">{{v}}<br></div>
+       </div>
+      <div *ngIf="!isThreshold(val)&&!isList(val)">{{fixNumbers(val)}}</div>
+      </td>
+  </tr>
+  </tbody>
+</table>

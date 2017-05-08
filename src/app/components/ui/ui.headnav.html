@@ -1,0 +1,25 @@
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <a href="#" class="header item">
+      <img class="logo" src="/assets/images/cisco_svg.png">
+      OCI Wrapper
+    </a>
+    <a href="#" class="item">Home</a>
+    <div class="ui simple dropdown item">
+      Data Viewer <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" [routerLink]="['/']">Report Dashboard</a>
+        <div class="divider"></div>
+        <a class="item" [routerLink]="['/threshold_def']">Threshold Definition</a>
+        <a class="item" [routerLink]="['/threshold']">Threshold</a>
+        <a class="item" [routerLink]="['/datasource']">DataSources</a>
+        <a class="item" [routerLink]="['/ruleset']">RuleSets</a>
+        <a class="item" [routerLink]="['/rulegroup']">RuleGroups</a>
+      </div>
+    </div>
+    <div class="ui simple item" [routerLink]="['/api']">
+      API Document
+    </div>
+    <a href="#" class="item">Help</a>
+  </div>
+</div>

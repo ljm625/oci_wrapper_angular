@@ -1,0 +1,59 @@
+<label *ngIf="label">{{label}}</label>
+<div class="ui grid">
+    <div class="one wide column">
+        <div class="ui icon button green" id="Test">
+            <i class="add icon"></i>
+        </div>
+
+        <div class="ui fluid popup bottom left transition hidden">
+            <form class="ui form">
+                <div class="field" *ngFor="let field of fields;let i =index ;">
+                    <sm-input *ngIf="(getType(field)=='input')" [label]="field.name" [(model)]="values[i]" (modelChange)="onChange()"></sm-input>
+                    <sm-select *ngIf="getType(field)=='select'" [label]="field.name" [(model)]="values[i]" (modelChange)="onChange()">
+                        <option *ngFor="let choice of field.choices" [value]="choice">{{choice}}</option>
+                    </sm-select>
+                    <sm-checkbox *ngIf="getType(field)=='check' " [label]="field.name" type="slider"
+                                 [(control)]="values[i]" (controlChange)="onChange()"></sm-checkbox>
+                    <ui-select *ngIf="getType(field)=='multiselect'" [choices]="field.choices" [label]="field.name"
+                               [(selected)]="values[i]" (selectedChange)="onChange()"></ui-select>
+                </div>
+            </form>
+            <div class="ui horizontal divider">
+            </div>
+            <div class="actions" style="text-align:right">
+                <div class="ui icon button green" (click)="addElement()">
+                    <i class="icon add"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fifteen wide column">
+        <div *ngFor="let data of dataList;let i=index;" style="display:inline">
+        <div class="ui blue label" style="margin-top: 0.3em;">
+            <i class="cube icon"></i> {{data.Name}}
+            <i class="delete icon" (click)="delElement(i)"></i>
+        </div>
+        <div class="ui fluid popup bottom left transition hidden">
+            <form class="ui form">
+                <div class="field" *ngFor="let field of fields;">
+                    <sm-input *ngIf="(getType(field)=='input')" [label]="field.name" [(model)]="dataList[i][field.name]"></sm-input>
+                    <sm-select *ngIf="getType(field)=='select'" [label]="field.name" [(model)]="dataList[i][field.name]">
+                        <option *ngFor="let choice of field.choices" [value]="choice">{{choice}}</option>
+                    </sm-select>
+                    <sm-checkbox *ngIf="getType(field)=='check' " [label]="field.name" type="slider"
+                                 [(control)]="dataList[i][field.name]"></sm-checkbox>
+                    <ui-select *ngIf="getType(field)=='multiselect'" [choices]="field.choices" [label]="field.name"
+                               [(selected)]="dataList[i][field.name]"></ui-select>
+                </div>
+            </form>
+            <!--<div class="ui horizontal divider">-->
+            <!--</div>-->
+            <!--<div class="actions" style="text-align:right">-->
+                <!--<button class="ui icon button blue" (click)="modElement(i)">-->
+                    <!--<i class="icon edit"></i>-->
+                <!--</button>-->
+            <!--</div>-->
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="ui grid">
+
+<div class="four wide column"></div>
+<div class="eight wide column">
+    <form class="ui form">
+        <div class="field">
+            <sm-input [label]="'Username'" [(model)]="username"></sm-input>
+        </div>
+        <div class="field">
+            <sm-input [label]="'Password'" type="password" [(model)]="password" (keyup.enter)="validate()"></sm-input>
+        </div>
+    </form>
+    <p *ngIf="loginFailed">The Credentials are not correct. Try again</p>
+    <br *ngIf="!loginFailed">
+    <div class="action" style="padding-bottom:5px" align="right">
+        <div class="ui positive right labeled icon button" (click)="validate()">
+            Login
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+
+</div>
+<div class="four wide column"></div>
+
+</div>

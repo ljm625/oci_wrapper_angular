@@ -1,0 +1,1089 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "OCI Wrapper API",
+        "description": "This is the API Documentation for the OCI Wrapper, it allows you to create, query and modify all the stuffs in the OCI Wrapper.",
+        "version": "1.0.0"
+    },
+    "host": "127.0.0.1:5000",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/api/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json",
+        "text/xml",
+        "text/html"
+    ],
+    "paths": {
+        "/datasource": {
+            "get": {
+                "summary": "Get all the defined DataSources.",
+                "description": "The API offer the ability to get the datasource and check the detail of it.\n",
+                "tags": [
+                    "DataSource"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of datasource",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DataSource"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "add a DataSources.",
+                "description": "The API offer the ability to add the datasource\n",
+                "tags": [
+                    "DataSource"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DataSource"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of datasource",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DataSource"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/datasource/{id}": {
+            "get": {
+                "summary": "Get a datasource",
+                "description": "a detailed datasource",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the datasource.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "DataSource"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An datasource",
+                        "schema": {
+                            "$ref": "#/definitions/DataSource"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "modify a DataSources.",
+                "description": "The API offer the ability to mod the datasource\n",
+                "tags": [
+                    "DataSource"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the datasource.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the datasource.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DataSource"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of datasource",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DataSource"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a datasource",
+                "description": "a detailed datasource",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the datasource.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "DataSource"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "status"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/threshold_def": {
+            "get": {
+                "summary": "Get all the defined ThresholdDef.",
+                "description": "The API offer the ability to get the ThresholdDef and check the detail of it.\n",
+                "tags": [
+                    "Threshold Definition"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of ThresholdDef",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ThresholdDef"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "add a ThresholdDef.",
+                "description": "The API offer the ability to add the ThresholdDef\n",
+                "tags": [
+                    "Threshold Definition"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ThresholdDef"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "An array of datasource"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/threshold_def/{id}": {
+            "get": {
+                "summary": "Get a ThresholdDef",
+                "description": "a detailed ThresholdDef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the ThresholdDef.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Threshold Definition"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An ThresholdDef",
+                        "schema": {
+                            "$ref": "#/definitions/ThresholdDef"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "modify a ThresholdDef.",
+                "description": "The API offer the ability to mod the ThresholdDef\n",
+                "tags": [
+                    "Threshold Definition"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the ThresholdDef.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the ThresholdDef.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ThresholdDef"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "A ThresholdDef"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a ThresholdDef",
+                "description": "a detailed ThresholdDef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the ThresholdDef.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Threshold Definition"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "status"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/threshold": {
+            "get": {
+                "summary": "Get all the defined Threshold.",
+                "description": "The API offer the ability to get the Threshold and check the detail of it.\n",
+                "tags": [
+                    "Threshold"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of Threshold",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Threshold"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "add a Threshold.",
+                "description": "The API offer the ability to add the Threshold\n",
+                "tags": [
+                    "Threshold"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Threshold"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "An array of datasource"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/threshold/{id}": {
+            "get": {
+                "summary": "Get a Threshold",
+                "description": "a detailed Threshold",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the Threshold.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Threshold"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An Threshold",
+                        "schema": {
+                            "$ref": "#/definitions/Threshold"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "modify a Threshold.",
+                "description": "The API offer the ability to mod the Threshold\n",
+                "tags": [
+                    "Threshold"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the Threshold.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the Threshold.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Threshold"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "A Threshold"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a Threshold",
+                "description": "a detailed Threshold",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the Threshold.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Threshold"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "status"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/ruleset": {
+            "get": {
+                "summary": "Get all the defined RuleSet.",
+                "description": "The API offer the ability to get the RuleSet and check the detail of it.\n",
+                "tags": [
+                    "RuleSet"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of RuleSet",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/RuleSet"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "add a RuleSet.",
+                "description": "The API offer the ability to add the RuleSet\n",
+                "tags": [
+                    "RuleSet"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RuleSet"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "An array of datasource"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/ruleset/{id}": {
+            "get": {
+                "summary": "Get a RuleSet",
+                "description": "a detailed RuleSet",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleSet.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "RuleSet"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An RuleSet",
+                        "schema": {
+                            "$ref": "#/definitions/RuleSet"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "modify a RuleSet.",
+                "description": "The API offer the ability to mod the RuleSet\n",
+                "tags": [
+                    "RuleSet"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleSet.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the RuleSet.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RuleSet"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "A RuleSet"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a RuleSet",
+                "description": "a detailed RuleSet",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleSet.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "RuleSet"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "status"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/rulegroup": {
+            "get": {
+                "summary": "Get all the defined RuleGroup.",
+                "description": "The API offer the ability to get the RuleGroup and check the detail of it.\n",
+                "tags": [
+                    "Rule Group"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of RuleGroup",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/RuleGroup"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "add a RuleGroup.",
+                "description": "The API offer the ability to add the RuleGroup\n",
+                "tags": [
+                    "Rule Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RuleGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "An array of datasource"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/rulegroup/{id}": {
+            "get": {
+                "summary": "Get a RuleGroup",
+                "description": "a detailed RuleGroup",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleGroup.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Rule Group"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An RuleGroup",
+                        "schema": {
+                            "$ref": "#/definitions/RuleGroup"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "modify a RuleGroup.",
+                "description": "The API offer the ability to mod the RuleGroup\n",
+                "tags": [
+                    "Rule Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleGroup.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the RuleGroup.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RuleGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "A RuleGroup"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete a RuleGroup",
+                "description": "a detailed RuleGroup",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id for the RuleGroup.",
+                        "required": true,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Rule Group"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "status"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/report": {
+            "get": {
+                "summary": "Get all RuleGroup Report",
+                "description": "a detailed RuleGroup",
+                "tags": [
+                    "Report"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A List of Report",
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "A certain RuleGroup report.",
+                "description": "get a certain report\n",
+                "tags": [
+                    "Report"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "the RuleGroup Name.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        },
+                        "description": "A Report"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "DataSource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "sss."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description."
+                },
+                "Route": {
+                    "type": "string",
+                    "description": "the route to the datasource."
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "the type of the datasource. Must be Single/Sample/Custom"
+                },
+                "DataPath": {
+                    "type": "string",
+                    "description": "the datapath. required for Single/Sample"
+                },
+                "Period": {
+                    "type": "string",
+                    "description": "the period. required for Sample in minutes"
+                },
+                "Filter": {
+                    "$ref": "#/definitions/Filter"
+                },
+                "Output": {
+                    "type": "string",
+                    "description": "output method,list/avg/first/last."
+                },
+                "DataSources": {
+                    "type": "array",
+                    "description": "A list of datasources.",
+                    "items": {
+                        "$ref": "#/definitions/DataSource"
+                    }
+                },
+                "Expression": {
+                    "type": "string",
+                    "description": "the expression."
+                }
+            }
+        },
+        "ThresholdDef": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "name."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description."
+                },
+                "Value": {
+                    "type": "string",
+                    "description": "the value."
+                }
+            }
+        },
+        "Threshold": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "name."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description."
+                },
+                "ErrorOperator": {
+                    "type": "string",
+                    "description": "operators"
+                },
+                "ErrorThreshold": {
+                    "$ref": "#/definitions/ThresholdDef"
+                },
+                "ErrorDataSource": {
+                    "$ref": "#/definitions/DataSource"
+                },
+                "WarnOperator": {
+                    "type": "string",
+                    "description": "operators"
+                },
+                "WarnThreshold": {
+                    "$ref": "#/definitions/ThresholdDef"
+                },
+                "WarnDataSource": {
+                    "$ref": "#/definitions/DataSource"
+                }
+            }
+        },
+        "RuleSet": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "name."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description."
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "Display or Threshold"
+                },
+                "Thresholds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Threshold"
+                    }
+                },
+                "DataSources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DataSource"
+                    }
+                }
+            }
+        },
+        "Rule": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "DataSource": {
+                    "$ref": "#/definitions/DataSource"
+                },
+                "Operator": {
+                    "type": "string",
+                    "description": "the operator for compare."
+                },
+                "Value": {
+                    "type": "string",
+                    "description": "the value for compare."
+                }
+            }
+        },
+        "Filter": {
+            "type": "object",
+            "properties": {
+                "Path": {
+                    "type": "string",
+                    "description": "the datapath for filtering."
+                },
+                "Operator": {
+                    "type": "string",
+                    "description": "the operator for compare."
+                },
+                "Value": {
+                    "type": "string",
+                    "description": "the value for compare."
+                }
+            }
+        },
+        "RuleGroup": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number",
+                    "description": "the id num."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "name."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description."
+                },
+                "Rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Rule"
+                    }
+                },
+                "RuleSets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RuleSet"
+                    }
+                }
+            }
+        },
+        "Report": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "name."
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

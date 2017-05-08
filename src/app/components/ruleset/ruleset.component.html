@@ -1,0 +1,24 @@
+<h1 class="ui header">
+    RuleSet
+</h1>
+<p class="sub header">These are the predefined rulesets in our database, you can view/edit/delete ruleset based on the demand</p>
+<br>
+<div class="ui grid">
+    <div class="fourteen wide column">
+        <sm-select placeholder="Search..." class="search fluid" [(model)]="selected" style="">
+            <option *ngFor="let name of selectorList">{{name}}</option>
+        </sm-select>
+    </div>
+    <div class="one wide column">
+        <sm-button class="primary" (click)="onQuery()">Query</sm-button></div>
+</div>
+<br>
+<div style="overflow-x: scroll" *ngIf="showTable">
+    <ui-table [table]="table" [editable]="true" (buttonAction)="modifyEvent($event)" (deleteAction)="deleteEvent($event)"></ui-table>
+</div>
+<br *ngIf="showTable">
+<div class="ui grid">
+    <div class="fourteen wide column"><p>Press create if you want to create a new RuleSet</p></div>
+    <div class="one wide column"><sm-button class="green" (click)="onBlankCreate()">Create</sm-button></div>
+</div>
+<ui-modal #modalBase [fields]='field' [title]="'RuleSet Operations'" [(values)]="values" [dependencies]="field_dependencies" (submitChange)="onSubmit($event)" (deleteConfirm)="onDelete($event)"></ui-modal>

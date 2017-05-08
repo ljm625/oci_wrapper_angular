@@ -1,0 +1,4 @@
+<label *ngIf="label">{{label}}</label>
+<select #multiselect multiple="" (change)="change($event.target.options)"  class="ui fluid dropdown search">
+    <option *ngFor="let choice of choices" [value]="choice">{{choice}}</option>
+</select>
