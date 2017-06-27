@@ -460,4 +460,30 @@ export class QueryApi {
             });
     }
 
+  /**
+   * Get the order of Order Config.
+   * The API offer the ability to get the RuleGroup and check the detail of it.
+   */
+  public orderGet (extraHttpRequestParams?: any ) : Observable<Array<models.RuleGroup>> {
+    const path = this.basePath + '/display_order';
+
+    let queryParameters = new URLSearchParams();
+    let headerParams = this.headerParser(this.defaultHeaders);
+    let requestOptions: RequestOptionsArgs = {
+      method: 'GET',
+      headers: headerParams,
+      search: queryParameters
+    };
+
+    return this.http.request(path, requestOptions)
+      .map((response: Response) => {
+        if (response.status === 204) {
+          return undefined;
+        } else {
+          return response.json();
+        }
+      });
+  }
+
+
 }

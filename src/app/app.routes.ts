@@ -12,6 +12,7 @@ import {Threshold} from "app/components/threshold/threshold.component";
 import {RuleSet} from "app/components/ruleset/ruleset.component";
 import {RuleGroup} from "app/components/rulegroup/rulegroup.component";
 import {LoginComponent} from "app/components/login/login.component";
+import {OrderConfig} from "./components/order_config/orderconfig.component";
 
 export const routes: Routes = [
   { path: '', component: DashBoard, pathMatch: 'full' },
@@ -28,7 +29,8 @@ export const routes: Routes = [
   { path: 'ruleset', component: RuleSet },
   { path: 'rulegroup', component: RuleGroup },
   { path: 'api', component: ApiDoc },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'config', component: OrderConfig }
 ];
 
 export const APP_ROUTER_PROVIDERS: Array<{}> = [

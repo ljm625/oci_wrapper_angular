@@ -28,6 +28,8 @@ import {RuleSet} from "./components/ruleset/ruleset.component";
 import {Popup} from "./components/ui/popup";
 import {RuleGroup} from "./components/rulegroup/rulegroup.component";
 import {NgSemanticModule} from "ng-semantic/ng-semantic";
+import {DragulaModule} from "ng2-dragula";
+import {OrderConfig} from "./components/order_config/orderconfig.component";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import {NgSemanticModule} from "ng-semantic/ng-semantic";
     Threshold,
     RuleSet,
     Popup,
-    RuleGroup
+    RuleGroup,
+    OrderConfig
 
   ],
   imports: [
@@ -58,7 +61,8 @@ import {NgSemanticModule} from "ng-semantic/ng-semantic";
     HttpModule,
     JsonpModule,
     routing,
-    NgSemanticModule
+    NgSemanticModule,
+    DragulaModule
   ],
   providers: [
     APP_ROUTER_PROVIDERS,

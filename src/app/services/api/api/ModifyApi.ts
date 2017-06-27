@@ -247,4 +247,41 @@ export class ModifyApi {
             });
     }
 
+  /**
+   * modify a Threshold.
+   * The API offer the ability to mod the Threshold
+   * @param id the id for the Threshold.
+   * @param body the Threshold.
+   */
+  public orderConfigPost (body: any, extraHttpRequestParams?: any ) : Observable<{}> {
+    const path = this.basePath + '/display_order';
+
+    let queryParameters = new URLSearchParams();
+    let headerParams = this.headerParser(this.defaultHeaders);
+    // verify required parameter 'id' is not null or undefined
+    // if (id === null || id === undefined) {
+    //   throw new Error('Required parameter id was null or undefined when calling thresholdIdPost.');
+    // }
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new Error('Required parameter body was null or undefined when calling orderConfigPost.');
+    }
+    let requestOptions: RequestOptionsArgs = {
+      method: 'POST',
+      headers: headerParams,
+      search: queryParameters
+    };
+    requestOptions.body = JSON.stringify(body);
+
+    return this.http.request(path, requestOptions)
+      .map((response: Response) => {
+        if (response.status === 204) {
+          return undefined;
+        } else {
+          return response.json();
+        }
+      });
+  }
+
+
 }

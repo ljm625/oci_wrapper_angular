@@ -1,0 +1,16 @@
+<div class="ui active dimmer" *ngIf="!dataComplete" style="position:fixed;min-height:100%">
+  <div class="ui indeterminate text loader">Applying changes to OCI Wrapper</div>
+</div>
+<h1 class="ui header">
+  Display Order Config
+</h1>
+<p class="sub header">Here you can adjust which element will be the first in the report.
+  Use Drag and Drop to adjust and press SAVE</p>
+<br>
+<div class='wrapper'>
+  <div class='container' [dragula]='"first-bag"'>
+    <div *ngFor="let name of Order_list">{{name}}</div>
+  </div>
+</div>
+<br>
+<sm-button class="primary" (click)="submit()">Save</sm-button>
