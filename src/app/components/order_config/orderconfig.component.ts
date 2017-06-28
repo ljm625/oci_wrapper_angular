@@ -65,9 +65,9 @@ export class OrderConfig implements OnInit {
     console.log(el);
     console.log(e.innerText);
     this.addClass(e, 'ex-moved');
-    let length=el.innerText.split('\n').length;
-    this.Order_list=el.innerText.split('\n').splice(0,length-1);
-    console.log(this.Order_list)
+    // let length=el.innerText.split('\n').length;
+    this.Order_list=el.innerText.trim().split('\n');
+    console.log(this.Order_list);
   }
   private hasClass(el: any, name: string) {
     return new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)').test(el.className);
