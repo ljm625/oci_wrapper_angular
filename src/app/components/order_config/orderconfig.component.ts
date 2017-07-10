@@ -95,7 +95,6 @@ export class OrderConfig implements OnInit {
     // do something
   }
 
-
   private submit(){
     let payload={};
     payload['Order']=this.Order_list;
@@ -104,7 +103,6 @@ export class OrderConfig implements OnInit {
       this.dataComplete=true;
     });
   }
-
 
 
 }

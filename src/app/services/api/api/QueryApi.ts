@@ -214,7 +214,8 @@ export class QueryApi {
         const path = this.basePath + '/report';
 
         let queryParameters = new URLSearchParams();
-        let headerParams = this.headerParser(this.defaultHeaders);
+        // No auth for report.
+        let headerParams = this.defaultHeaders;
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling reportPost.');
@@ -236,7 +237,37 @@ export class QueryApi {
             });
     }
 
-    /**
+  /**
+   * A certain RuleGroup report.
+   * get a certain report
+   * @param body the RuleGroup Name.
+   */
+  public ruleGroupListGet (extraHttpRequestParams?: any ) : Observable<any> {
+    const path = this.basePath + '/rulegroup_list';
+
+    let queryParameters = new URLSearchParams();
+    let headerParams = this.defaultHeaders;
+    // verify required parameter 'body' is not null or undefined
+    let requestOptions: RequestOptionsArgs = {
+      method: 'GET',
+      headers: headerParams,
+      search: queryParameters
+    };
+
+    return this.http.request(path, requestOptions)
+      .map((response: Response) => {
+        if (response.status === 204) {
+          return undefined;
+        } else {
+          return response.json();
+        }
+      });
+  }
+
+
+
+
+  /**
      * Get all the defined RuleGroup.
      * The API offer the ability to get the RuleGroup and check the detail of it.
      */

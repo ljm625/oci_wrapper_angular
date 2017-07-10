@@ -5,7 +5,7 @@
         "description": "This is the API Documentation for the OCI Wrapper, it allows you to create, query and modify all the stuffs in the OCI Wrapper.",
         "version": "1.0.0"
     },
-    "host": "127.0.0.1:5000",
+    "host": "oci-rest-prod",
     "schemes": [
         "http"
     ],

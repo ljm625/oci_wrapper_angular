@@ -16,15 +16,23 @@ export class DashBoard implements AfterViewInit{
     selectorList: Array<string> = [];
     selectorId: Array<number> = [];
     ngAfterViewInit(): void {
-        let token=this.data_service.getToken();
-        this.data_service.getRuleGroups().subscribe(resp=>{
-           for(let ds of resp){
-               console.log(ds);
-               this.selectorList.push(ds.Name);
-               this.selectorId.push(ds.id);
-               console.log(this.selectorList)
-           }
+        // let token=this.data_service.getToken();
+        this.queryApi.ruleGroupListGet().subscribe(resp=>{
+          let num=0;
+          for(let rg of resp){
+            this.selectorList.push(rg);
+            this.selectorId.push(num);
+            num++;
+          }
         });
+        // this.data_service.getRuleGroups().subscribe(resp=>{
+        //    for(let ds of resp){
+        //        console.log(ds);
+        //        this.selectorList.push(ds.Name);
+        //        this.selectorId.push(ds.id);
+        //        console.log(this.selectorList)
+        //    }
+        // });
 
     }
     showTable: boolean = false;
@@ -34,7 +42,7 @@ export class DashBoard implements AfterViewInit{
         data: []
     };
 
-    constructor(private data_service: DataService,private router:Router) {
+    constructor(private data_service: DataService,private router:Router, private queryApi:QueryApi) {
 
     }
 
